@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 34.0, 78.0, 1280.0, 933.0 ],
+		"rect" : [ 34.0, 79.0, 1057.0, 933.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -38,12 +38,56 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-36",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 1014.0, 348.0, 60.0, 22.0 ],
+					"style" : "",
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-35",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1079.0, 348.0, 74.0, 20.0 ],
+					"style" : "",
+					"text" : "bang to init"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"color" : [ 0.941176, 0.690196, 0.196078, 1.0 ],
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 971.0, 381.0, 103.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"filename" : "scale_parser.js",
+						"parameter_enable" : 0
+					}
+,
+					"style" : "",
+					"text" : "js scale_parser.js"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-55",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 996.0, 405.0, 60.0, 22.0 ],
+					"patching_rect" : [ 996.0, 463.0, 60.0, 22.0 ],
 					"style" : "",
 					"text" : "loadbang"
 				}
@@ -58,7 +102,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "int", "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 996.0, 480.0, 100.0, 22.0 ],
+					"patching_rect" : [ 996.0, 538.0, 100.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -70,7 +114,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 996.0, 442.0, 52.0, 22.0 ],
+					"patching_rect" : [ 996.0, 500.0, 52.0, 22.0 ],
 					"style" : "",
 					"text" : "midiinfo"
 				}
@@ -932,7 +976,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 996.0, 177.0, 50.0, 22.0 ],
+					"patching_rect" : [ 1014.0, 253.0, 50.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -944,7 +988,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 996.0, 221.0, 106.0, 22.0 ],
+					"patching_rect" : [ 1014.0, 297.0, 106.0, 22.0 ],
 					"style" : "",
 					"text" : "prepend setOffset"
 				}
@@ -957,7 +1001,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 971.0, 361.0, 61.0, 22.0 ],
+					"patching_rect" : [ 971.0, 419.0, 61.0, 22.0 ],
 					"style" : "",
 					"text" : "append 1"
 				}
@@ -969,7 +1013,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 3,
 					"numoutlets" : 0,
-					"patching_rect" : [ 971.0, 528.0, 51.0, 22.0 ],
+					"patching_rect" : [ 971.0, 586.0, 51.0, 22.0 ],
 					"style" : "",
 					"text" : "noteout"
 				}
@@ -1645,7 +1689,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-38", 0 ],
+					"destination" : [ "obj-7", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-2", 1 ]
@@ -1781,6 +1825,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-36", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-37", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -1808,10 +1861,10 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-2", 0 ],
+					"destination" : [ "obj-7", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 1005.5, 283.0, 879.5, 283.0 ],
+					"midpoints" : [ 1023.5, 336.0, 980.5, 336.0 ],
 					"source" : [ "obj-5", 0 ]
 				}
 
@@ -1852,10 +1905,26 @@
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-38", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-7", 0 ]
+				}
+
+			}
  ],
 		"dependency_cache" : [ 			{
 				"name" : "matrix_cruncher.js",
-				"bootpath" : "~/ZEAL/Patches and Presets/Max/super video piano",
+				"bootpath" : "~/ZEAL/Patches and Presets/Max/super-video-piano",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "scale_parser.js",
+				"bootpath" : "~/ZEAL/Patches and Presets/Max/super-video-piano",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1

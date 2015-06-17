@@ -6,10 +6,6 @@ var matrixin = new JitterMatrix(1, "char", 1, 24);
 var pmatrix = new JitterMatrix(1, "char", 1, 24);
 
 var thresh = 100;
-var offset = 12;
-
-var scale_major = [ 0, 2, 4, 5, 7, 9, 11 ];
-
 
 function bang()
 {
@@ -25,12 +21,6 @@ function setThresh( i )
 }
 
 
-function setOffset( i )
-{
-	offset = i;
-}
-
-
 function jit_matrix( m )
 {
 	matrixin.frommatrix( m );
@@ -43,13 +33,13 @@ function jit_matrix( m )
 		if(  val > thresh && pval <= thresh )
 		{
 			matrix.setcell2d( 0, i, val );
-			outlet( 1, scale( i ), val );
+			outlet( 1, i, val );
 			
 		}
 		else if( val < thresh && pval >=thresh )
 		{
 			matrix.setcell2d( 0, i, 0 );
-			outlet( 1, scale( i ), 0 );
+			outlet( 1, i, 0 );
 		}
 	}
 	
@@ -64,15 +54,5 @@ function clamp( i )
 	var j = i;
 	if( j < 0 ) j = 0;
 	if( j > 255 ) j = 255;
-	return j;
-}
-
-
-function scale( i )
-{
-	var j = i;
-	//TODO unwrong this:
-	j = j + scale_major[ i % scale_major.length ] + offset;
-	
 	return j;
 }
