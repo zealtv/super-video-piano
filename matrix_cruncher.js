@@ -1,3 +1,4 @@
+autowatch = 1;
 inlets = 1;
 outlets = 2;
 
@@ -33,7 +34,7 @@ function jit_matrix( m )
 		if(  val > thresh && pval <= thresh )
 		{
 			matrix.setcell2d( 0, i, val );
-			outlet( 1, i, val );
+			outlet( 1, i, val/2 );
 			
 		}
 		else if( val < thresh && pval >=thresh )
