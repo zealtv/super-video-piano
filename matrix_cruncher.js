@@ -8,6 +8,9 @@ var pmatrix = new JitterMatrix(1, "char", 1, 24);
 
 var thresh = 100;
 
+var doAudio = 1;
+var doMidi = 1;
+
 function bang()
 {
 	matrix.setall( 0 );
@@ -25,6 +28,8 @@ function setThresh( i )
 function jit_matrix( m )
 {
 	matrixin.frommatrix( m );
+	
+	
 	
 	for( var i = 0; i < 24; i++ )
 	{
@@ -47,6 +52,8 @@ function jit_matrix( m )
 	pmatrix.frommatrix( m );
 	
 	outlet( 0, "jit_matrix", matrix.name );
+	
+	
 }
 
 

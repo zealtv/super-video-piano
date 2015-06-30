@@ -6,6 +6,8 @@ outlets = 2;
 var maxNotes = 156;
 var offset = 12;
 var currentScale = 0;
+var doMidi = 1;
+var doAudio = 1;
 
 
 //scales
@@ -92,22 +94,13 @@ function setScale( i )
 
 function bang()
 {
-
-	post( "scales length = " + scales.length + "\n" );
-
 	for( var i = 0; i < scales.length; i++ )
 	{
-
 		scales[i].clearScale();
 		scales[i].makeScale();
-
-		post( "Scale: " + scales[i].name + "\n");
-		post( "scale length = " + scales[i].scale.length + "\n");
-
 	}
 
 	getScales();
-
 }
 
 
@@ -116,14 +109,23 @@ function list( a )
 	if( arguments.length == 2 )
 	{
 
-		var note = arguments[0];
-		var vel = arguments[1];
-
-		if( vel > 127 ) vel = 127;
-
-		note = scales[currentScale].scale[ note % maxNotes ] + offset;		
+		if( doMidi )
+		{
+			var note = arguments[0];
+			var vel = arguments[1];
+	
+			if( vel > 127 ) vel = 127;
+	
+			note = scales[currentScale].scale[ note % maxNotes ] + offset;		
+			
+			outlet( 0, "midi", note, vel );
+		}
 		
-		outlet( 0, note, vel );
+		
+	/*	if( doAudio )
+		{
+			outlet( 0, "audio", 
+		}*/
 	}
 }
 
@@ -140,5 +142,16 @@ function flush()
 	outlet( 1, "flush", 1 );
 }
 
+
+function enableMidi( i )
+{
+	doMidi = i;
+}
+
+
+function enableAudio( i )
+{
+	doAudio = i;
+}
 
 
